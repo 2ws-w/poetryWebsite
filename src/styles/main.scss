@@ -1,0 +1,39 @@
+// 定义字体  接受大小、颜色、行高
+@mixin font-set($size, $color: red,$weight:300, $lineHight: auto) {
+    font-family: '宋体';
+    font-size: $size;
+    color: $color;
+    font-weight: $weight;
+    line-height: $lineHight;
+}
+
+/*版心居中*/
+@mixin wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+// flex布局
+@mixin flex-layout($direction:column, $alignItems:center, $justifyContent:center, $wrap:wrap) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+    flex-wrap: $wrap;
+}
+
+// 超出显示省略号,需指定行高
+@mixin ellipsis($line: 1) {
+    overflow: hidden; // 溢出隐藏
+    -webkit-box-orient: vertical; //垂直排列子元素 伸缩盒子的子元素排列
+    -webkit-line-clamp: $line; //最多显示几行 多出部分。。。显示
+    text-overflow: ellipsis; // 显示省略号
+    display: -webkit-box;
+}
+
+$font-size-title: 36px;
+$font-size-lg: 28px;
+$font-size-md: 24px;
+$font-size-base: 18px;
+$font-size-sm: 14px;
+$font-size-mini: 12px;
