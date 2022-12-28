@@ -4,7 +4,6 @@ import { ref } from 'vue'
 </script>
  
 <template>
-  <h1>ssss</h1>
   <!-- 轮播图 ## -->
   <div class="banner">
     <a-carousel :style="{ width: '100%', height: '340px', }" :auto-play="true" indicator-type="never"
