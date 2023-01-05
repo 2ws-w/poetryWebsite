@@ -1,5 +1,8 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 </script>
  
 <template>
@@ -23,7 +26,7 @@ import { ref } from 'vue'
 
         <!-- 底部的版权及备案信息 ## -->
         <div class="copyright">
-            <div class="copy">© 2022 - 2022 九州词 × 玉玉菠萝
+            <div class="copy">© 2022 - 2023 {{ t('copyright') }}
             </div>
             <p class="heaet"></p>
         </div>

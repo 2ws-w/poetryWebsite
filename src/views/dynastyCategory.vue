@@ -73,9 +73,8 @@ const poetrydetail: any = reactive({
                 <a href="/"> <icon-home /> 主页</a>
             </a-breadcrumb-item>
             <a-breadcrumb-item>
-                <a href="/poetryPage"> 诗歌分类 </a>
+                <a href="/dynastyCategory"> 诗歌分类 </a>
             </a-breadcrumb-item>
-
         </a-breadcrumb>
     </div>
     <!-- 面包屑 @@ -->
