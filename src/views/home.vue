@@ -36,10 +36,10 @@ import { ref } from 'vue'
 
   <!-- 诗词分类 ## -->
   <div class="category">
-    <div class="title">
+    <div class="categoryTitle">
       诗词分类
     </div>
-    <div class="item">
+    <div class="categoryItem">
       <span>唐诗</span>
       <span>宋诗</span>
       <span>四书五经</span>
@@ -96,6 +96,9 @@ import { ref } from 'vue'
       <span>发现新思想</span>
     </div>
     <div class="displayArea">
+      <div class="arrow">
+        <icon-left-circle />
+      </div>
       <div class="item" v-for="(item, index) in 4" :key="index">
         <div class="img"></div>
         <div class="info">
@@ -104,6 +107,10 @@ import { ref } from 'vue'
           <span>查看详情</span>
         </div>
       </div>
+      <div class="arrow">
+        <icon-right-circle />
+      </div>
+
     </div>
   </div>
   <!-- 诗集推荐 ## -->
@@ -154,12 +161,12 @@ import { ref } from 'vue'
   @include wrapper();
   margin-top: 20px;
 
-  .title {
+  .categoryTitle {
     @include font-set($font-size-lg, black, 600);
     margin-bottom: 20px;
   }
 
-  .item {
+  .categoryItem {
     @include wrapper();
     @include flex-layout(row, center, space-between, wrap);
 
@@ -171,12 +178,14 @@ import { ref } from 'vue'
       width: 222px;
       height: 127px;
       background-color: rgb(112, 110, 110);
-      transition: all 0.1 ease;
+      transition: all 0.3s ease;
+      transform: scale(1);
+
       cursor: pointer;
 
       &:hover {
-        box-shadow: 0px 6px 12px rgba(42, 43, 43, 0.8);
-        transform: scale(1.01);
+        box-shadow: 0px 6px 12px rgba(42, 43, 43, 0.3);
+        transform: scale(1.06);
       }
     }
   }
@@ -262,9 +271,15 @@ import { ref } from 'vue'
     @include flex-layout(row, center, space-between);
     width: 100%;
 
+    .arrow {
+      width: 40px;
+      height: 40px;
+      background-color: red;
+    }
+
     .item {
       width: 241px;
-      padding: 10px;
+      // padding: 0px;
 
       // 上方图片
       .img {
