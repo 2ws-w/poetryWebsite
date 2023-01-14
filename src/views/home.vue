@@ -1,5 +1,16 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
+import trottingBarVue from '../components/trottingBar.vue';// 跑马灯组件
+import searchBar from '../components/searchBar.vue';//搜索框组件
+
+// 点击 诗集 处发案件
+const clickPoetryAnthology = () => {
+  alert(1)
+}
+
+
+// 诗词分类 
+let categoryTitle = ['唐诗', '宋诗', '四书五经', '五代', '论语', '宋词', '诗经', '蒙学', '纳兰性德', '幽梦影']//分类标题
 
 </script>
  
@@ -16,9 +27,8 @@ import { ref } from 'vue'
   <!-- 轮播图 @@ -->
   <!-- 搜索框 ## -->
   <div class="search">
-    <a-space direction="vertical" size="large">
-      <a-input-search :style="{ width: '600px' }" size="large" placeholder="落花人独立，微雨燕双飞" />
-    </a-space>
+    <searchBar></searchBar>
+
   </div>
   <!-- 搜索框 @@ -->
 
@@ -40,16 +50,10 @@ import { ref } from 'vue'
       诗词分类
     </div>
     <div class="categoryItem">
-      <span>唐诗</span>
-      <span>宋诗</span>
-      <span>四书五经</span>
-      <span>五代</span>
-      <span>论语</span>
-      <span>宋词</span>
-      <span>诗经</span>
-      <span>蒙学</span>
-      <span>纳兰性德</span>
-      <span>幽梦影</span>
+      <a-card class="cardTitle" hoverable v-for="(item, index) in categoryTitle" :key="index">
+        {{ item }}
+      </a-card>
+
     </div>
   </div>
   <!-- 诗词分类 @@ -->
@@ -95,23 +99,7 @@ import { ref } from 'vue'
       <p>诗集推荐</p>
       <span>发现新思想</span>
     </div>
-    <div class="displayArea">
-      <div class="arrow">
-        <icon-left-circle />
-      </div>
-      <div class="item" v-for="(item, index) in 4" :key="index">
-        <div class="img"></div>
-        <div class="info">
-          <span>作者</span>
-          <p>诗集标题</p>
-          <span>查看详情</span>
-        </div>
-      </div>
-      <div class="arrow">
-        <icon-right-circle />
-      </div>
-
-    </div>
+    <trottingBarVue></trottingBarVue>
   </div>
   <!-- 诗集推荐 ## -->
 
@@ -130,16 +118,15 @@ import { ref } from 'vue'
 
 // < !-- 搜索框 ## -->
 .search {
-  @include flex-layout();
-  @include wrapper();
-  height: 60px;
-  background-color: antiquewhite;
+
+
 }
 
 // < !-- 关于网站 ## -->
 .aboutUS {
   @include flex-layout(row, left, space-between);
   @include wrapper();
+  margin-top: 10px;
   padding: 10px 0;
 
   .title {
@@ -166,26 +153,27 @@ import { ref } from 'vue'
     margin-bottom: 20px;
   }
 
+
+
   .categoryItem {
     @include wrapper();
     @include flex-layout(row, center, space-between, wrap);
 
-    span {
+    .cardTitle {
       margin: 15px 0;
       @include flex-layout();
+      transition-property: all;
       @include font-set($font-size-base, white, 400);
       list-style-type: none;
       width: 222px;
       height: 127px;
-      background-color: rgb(112, 110, 110);
+      background-color: #dff9fb;
       transition: all 0.3s ease;
       transform: scale(1);
-
       cursor: pointer;
 
       &:hover {
-        box-shadow: 0px 6px 12px rgba(42, 43, 43, 0.3);
-        transform: scale(1.06);
+        transform: translateY(-4px);
       }
     }
   }
@@ -267,44 +255,6 @@ import { ref } from 'vue'
     }
   }
 
-  .displayArea {
-    @include flex-layout(row, center, space-between);
-    width: 100%;
 
-    .arrow {
-      width: 40px;
-      height: 40px;
-      background-color: red;
-    }
-
-    .item {
-      width: 241px;
-      // padding: 0px;
-
-      // 上方图片
-      .img {
-        width: 100%;
-        height: 200px;
-        background-color: #716e6e;
-      }
-
-      // 下方文字
-      .info {
-        height: 127px;
-        width: 100%;
-        background-color: rgb(201, 205, 205);
-        @include flex-layout(column, center, center);
-
-        span {
-          @include font-set($font-size-sm, black, 600);
-        }
-
-        p {
-          @include font-set($font-size-md, black, 600);
-          line-height: 10px;
-        }
-      }
-    }
-  }
 }
 </style>

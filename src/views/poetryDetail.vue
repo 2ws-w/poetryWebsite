@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { ref, reactive } from 'vue'
 import detailPoetryCard from '../components/detailPoetryCard.vue';
-
+import searchBar from '../components/searchBar.vue';
 const arr = {
     title: '江城梅花引 · 荆溪阻雪',
     author: '蒋捷',
@@ -36,10 +36,13 @@ const poetrydetail: any = reactive({
             </a-breadcrumb>
         </div>
         <!-- 面包屑 @@ -->
+        <!-- 搜索框 ##-->
+        <searchBar style="marginBottom:40px"></searchBar>
+        <!-- 搜索框 @@-->
         <!-- 诗歌详情页面 ##-->
-        <detailPoetryCard :info="arr" :width="700" style="margin-top:40px"></detailPoetryCard>
+        <detailPoetryCard :info="arr" :width="700" style="marginBottom:40px"></detailPoetryCard>
         <!-- 诗歌详情页面 @@-->
-     
+
 
     </div>
 </template>

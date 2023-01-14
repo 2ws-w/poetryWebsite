@@ -85,7 +85,7 @@ const { t } = useI18n()
 }
 
 .footer {
-    background-color: aliceblue;
+    background-color: rgb(44, 47, 63);
     @include flex-layout();
 }
 
